@@ -1,5 +1,7 @@
 # ocaml-cordova-plugin-dialogs
 
+* gen_js_api (master branch): [![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs)
+
 Binding to
 [cordova-plugin-dialogs](https://github.com/apache/cordova-plugin-dialogs)
 
