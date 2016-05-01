@@ -1,6 +1,7 @@
 # ocaml-cordova-plugin-dialogs
 
-* gen_js_api (master branch): [![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs)
+[![LGPL-v3 licensed](https://img.shields.io/badge/license-LGPLv3-blue.svg)](https://raw.githubusercontent.com/dannywillems/ocaml-cordova-plugin-activityindicator/master/LICENSE)
+[![Build Status](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs.svg?branch=master)](https://travis-ci.org/dannywillems/ocaml-cordova-plugin-dialogs)
 
 Binding to
 [cordova-plugin-dialogs](https://github.com/apache/cordova-plugin-dialogs)
