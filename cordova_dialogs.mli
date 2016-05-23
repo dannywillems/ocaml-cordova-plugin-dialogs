@@ -8,7 +8,7 @@ class notification : Ojs.t ->
   object
     inherit Ojs.obj
     (* Show an alert with a button *)
-    (* alert [message] [callback] *)
+    (* alert [message] [callback] ?[title] ?[text_button] *)
     method alert :  string                                      ->
                     (unit -> unit)                              ->
                     ?title:(string [@js.default "Alert"])       ->
@@ -16,13 +16,8 @@ class notification : Ojs.t ->
                     unit                                        ->
                     unit
 
-    (* Show an alert with two buttons:
-      * - message
-      * - callback when the button is pressed taking the index of the pressed
-      * button as argument.
-      * - title of the alert box
-      * - array of 2 elements for buttons text.
-      *)
+    (* Show a confirm with two buttons *)
+    (* confirm [message] [callback] ?[title] ?[label_button] *)
     method confirm :  string                                      ->
                       (button_response -> unit)                   ->
                       ?title:(string [@js.default "Confirm"])     ->
@@ -31,14 +26,8 @@ class notification : Ojs.t ->
                       unit                                        ->
                       unit
 
-    (* Show a prompt with a button:
-      * - message
-      * - callback when the button is pressed taking the index of the pressed
-      * button as argument.
-      * - title of the alert box
-      * - array of 2 elements for buttons text
-      * - default text in the input
-      *)
+    (* Show a prompt with two buttons *)
+    (* promp [message] [callback] ?[title] ?[label_button] ?[default_text] *)
     method prompt : string                                              ->
                     (button_response -> unit)                           ->
                     ?title:(string [@js.default "Prompt"])              ->
@@ -48,9 +37,8 @@ class notification : Ojs.t ->
                     unit                                                ->
                     unit
 
-    (* Beep
-     * - The number of times to repeat the beep
-     * *)
+    (* Beep *)
+    (* beep [nb_beep] *)
     method beep   : int -> unit
   end
 
