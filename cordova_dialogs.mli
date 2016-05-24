@@ -9,17 +9,19 @@ class notification : Ojs.t ->
     inherit Ojs.obj
     (* Show an alert with a button *)
     (* alert [message] [callback] ?[title] ?[text_button] *)
-    method alert :  string                                      ->
-                    (unit -> unit)                              ->
-                    ?title:(string [@js.default "Alert"])       ->
-                    ?button_text:(string [@js.default "OK"])    ->
-                    unit                                        ->
+    method alert :  string                                        ->
+                    ?cb:(unit -> unit
+                      [@js.default (fun () -> ())])               ->
+                    ?title:(string [@js.default "Alert"])         ->
+                    ?button_text:(string [@js.default "OK"])      ->
+                    unit                                          ->
                     unit
 
     (* Show a confirm with two buttons *)
     (* confirm [message] [callback] ?[title] ?[label_button] *)
     method confirm :  string                                      ->
-                      (button_response -> unit)                   ->
+                      ?cb:(button_response -> unit
+                        [@js.default (fun e -> ())])              ->
                       ?title:(string [@js.default "Confirm"])     ->
                       ?button_labels:(string array [@js.default
                         [|"OK";"Cancel"|]])                       ->
@@ -29,7 +31,8 @@ class notification : Ojs.t ->
     (* Show a prompt with two buttons *)
     (* promp [message] [callback] ?[title] ?[label_button] ?[default_text] *)
     method prompt : string                                              ->
-                    (button_response -> unit)                           ->
+                    ?cb:(button_response -> unit
+                      [@js.default (fun e -> ())])                      ->
                     ?title:(string [@js.default "Prompt"])              ->
                     ?button_label:(string array [@js.default [|"OK";
                       "Cancel"|]])                                      ->
