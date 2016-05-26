@@ -57,22 +57,3 @@ cordova plugin add cordova-plugin-dialogs
 
 See the official documentation
 [cordova-plugin-dialogs](https://github.com/apache/cordova-plugin-dialogs)
-
-## ! BE CAREFUL !
-
-The plugin creates a new object called *navigator.notification*, but the object is
-available when the *deviceready* event is handled.
-
-We provide a function *Cordova_dialogs.t* of type *unit -> Cordova_dialogs.notification* which creates the
-binding to the *navigator.notification* object. You must call it when the deviceready
-event is handled, eg (with js_of_ocaml)
-
-```OCaml
-let on_device_ready _ =
-  let d = Cordova_dialogs.t () in
-  (* Some code *)
-
-let _ =
-  Dom.addEventListener Dom_html.document (Dom.Event.make "deviceready")
-  (Dom_html.handler on_device_ready) Js._false
-```
